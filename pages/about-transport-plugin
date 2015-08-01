@@ -1,0 +1,37 @@
+{
+  "title": "About Transport Plugin",
+  "story": [
+  {
+    "type": "paragraph",
+    "id": "e374896cffbe1482",
+    "text": "Here we describe the purpose of the plugin and include a sample."
+  },
+  {
+    "type": "transport",
+    "id": "41539361b8005c94",
+    "text": "This is text in the new plugin. You can *double-click* to edit it too."
+  }
+],
+  "journal": [
+  {
+    "type": "create",
+    "item": {
+      "title": "About Transport Plugin",
+      "story": [
+  {
+    "type": "paragraph",
+    "id": "e374896cffbe1482",
+    "text": "Here we describe the purpose of the plugin and include a sample."
+  },
+  {
+    "type": "transport",
+    "id": "41539361b8005c94",
+    "text": "This is text in the new plugin. You can *double-click* to edit it too."
+  }
+]
+    },
+    "date": 1438439024000,
+    "certificate": "from mkplugin.sh"
+  }
+]
+}
