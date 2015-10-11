@@ -13,23 +13,41 @@ beam = (url) ->
 
 emit = ($item, item) ->
   $item.append """
-    <p style="background-color:#eee;padding:15px;">
-      #{expand item.text}<br>
-    </p>
+    <div style="background-color:#eee;padding:15px;text-align:center;">
+      <p>
+        transporting throuh<br>
+        #{expand item.text}
+      </p>
+      <p class=caption>
+        ready
+      </b>
+    </div>
   """
 
 bind = ($item, item) ->
   $item.dblclick -> wiki.textEditor $item, item
   $item.find('button').click ->
     beam item.text
+
   $item.on 'drop', (e) ->
     e.preventDefault()
     e.stopPropagation()
+    params =
+      text: e.originalEvent.dataTransfer.getData("text")
+      html: e.originalEvent.dataTransfer.getData("text/html")
+    console.log 'params',params
+    $item.find('.caption').text 'waiting'
 
-    htmlDtoppedElem = e.originalEvent.dataTransfer.getData('text/html')
-    link = $(htmlDtoppedElem).attr "href"
+    req =
+      type: "POST",
+      url: item.text,
+      dataType: 'json',
+      contentType: "application/json",
+      data: JSON.stringify(params)
 
-    $.getJSON item.text, { drop: link }, (page) ->
+    $.ajax(req).done (page) ->
+      $item.find('.caption').text 'ready'
+      console.log 'page', page
       resultPage = wiki.newPage(page)
       wiki.showResult resultPage
 
