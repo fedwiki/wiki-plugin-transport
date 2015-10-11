@@ -40,7 +40,7 @@ bind = ($item, item) ->
 
     req =
       type: "POST",
-      url: item.text,
+      url: item.text.replace(/^POST\s*/,'')
       dataType: 'json',
       contentType: "application/json",
       data: JSON.stringify(params)
