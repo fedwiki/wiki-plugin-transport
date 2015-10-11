@@ -19,10 +19,13 @@ emit = ($item, item) ->
         #{expand item.text}
       </p>
       <p class=caption>
-        ready
+        unavailable
       </b>
     </div>
   """
+  if match = item.text.match /(https?:\/\/.*?\/)/
+    $.get match[1], ->
+      $item.find('.caption').text 'ready'
 
 bind = ($item, item) ->
   $item.dblclick -> wiki.textEditor $item, item
