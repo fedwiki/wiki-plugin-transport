@@ -1,6 +1,6 @@
 {
   "name": "wiki-plugin-transport",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Federated Wiki - Transport Plugin",
   "keywords": [
     "transport",
@@ -9,11 +9,15 @@
     "plugin"
   ],
   "author": {
-    "name": "Your Name",
-    "email": "you@example.com",
-    "url": "http://example.com"
+    "name": "Ward Cunningha",
+    "email": "ward@c2.com",
+    "url": "http://ward.asia.wiki.org/transport-plugin.html"
   },
-  "contributors": [],
+  "contributors": [
+    {"name": "Paul Rodwell"},
+    {"name": "David Bovill"},
+    {"name": "Francesco Canessa"}
+  ],
   "scripts": {
     "test": "mocha"
   },
