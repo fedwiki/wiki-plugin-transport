@@ -1,37 +1,249 @@
 {
   "title": "About Transport Plugin",
   "story": [
-  {
-    "type": "paragraph",
-    "id": "e374896cffbe1482",
-    "text": "Here we describe the purpose of the plugin and include a sample."
-  },
-  {
-    "type": "transport",
-    "id": "41539361b8005c94",
-    "text": "This is text in the new plugin. You can *double-click* to edit it too."
-  }
-],
-  "journal": [
-  {
-    "type": "create",
-    "item": {
-      "title": "About Transport Plugin",
-      "story": [
-  {
-    "type": "paragraph",
-    "id": "e374896cffbe1482",
-    "text": "Here we describe the purpose of the plugin and include a sample."
-  },
-  {
-    "type": "transport",
-    "id": "41539361b8005c94",
-    "text": "This is text in the new plugin. You can *double-click* to edit it too."
-  }
-]
+    {
+      "type": "paragraph",
+      "id": "e374896cffbe1482",
+      "text": "This plugin provides interactive access to remote services that can read content you drop and create from it useful pages that appear ready to be saved or used at one's discretion."
     },
-    "date": 1438439024000,
-    "certificate": "from mkplugin.sh"
-  }
-]
+    {
+      "type": "paragraph",
+      "id": "29477024b817698b",
+      "text": "Markup in a Transport item tell the plugin what should be done with drops. Transporter services are expected to publish properly marked up plugins for your use."
+    },
+    {
+      "type": "paragraph",
+      "id": "22bb234b3eb3c801",
+      "text": "The following plugin is marked up to import images. Try dragging an image from some other website and dropping it here. Expect a new page added to the lineup."
+    },
+    {
+      "type": "transport",
+      "id": "41539361b8005c94",
+      "text": "POST http://port.fed.wiki.org:4010/image."
+    },
+    {
+      "type": "paragraph",
+      "id": "e0e43c67bd13522f",
+      "text": "The plugin collects various pieces of information from the drop. This varies with what you drag, from where you drag, and what browser and os host the plugin."
+    },
+    {
+      "type": "markdown",
+      "id": "b4e64ccaff2dcc52",
+      "text": "# Markup"
+    },
+    {
+      "type": "paragraph",
+      "id": "23871369649ceb3d",
+      "text": "Say POST with a service endpoint to send drop information to that service."
+    },
+    {
+      "type": "markdown",
+      "id": "90b8218c3c075df8",
+      "text": "# Catalog"
+    },
+    {
+      "type": "paragraph",
+      "id": "9a80a5731c546d24",
+      "text": "Look here for information about available Transporters and the people who support them."
+    },
+    {
+      "type": "reference",
+      "id": "7256f8cf33cc16a7",
+      "site": "port.fed.wiki.org",
+      "slug": "finding-and-writing-transporters",
+      "title": "Finding and Writing Transporters",
+      "text": "Here we will point to information about available transporters as well as tips for writing them yourself."
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "About Transport Plugin",
+        "story": [
+          {
+            "type": "paragraph",
+            "id": "e374896cffbe1482",
+            "text": "Here we describe the purpose of the plugin and include a sample."
+          },
+          {
+            "type": "transport",
+            "id": "41539361b8005c94",
+            "text": "POST http://port.fed.wiki.org:4010/image."
+          }
+        ]
+      },
+      "date": 1438439024000,
+      "certificate": "from mkplugin.sh"
+    },
+    {
+      "type": "edit",
+      "id": "e374896cffbe1482",
+      "item": {
+        "type": "paragraph",
+        "id": "e374896cffbe1482",
+        "text": "This plugin provides interactive access to remote services that can read content you drop and create useful pages here in wiki from it."
+      },
+      "date": 1444609891976
+    },
+    {
+      "type": "add",
+      "id": "29477024b817698b",
+      "item": {
+        "type": "paragraph",
+        "id": "29477024b817698b",
+        "text": "Markup in a Transport item tell the plugin what should be done with it. Transporter services are expected to publish properly marked up plugins for your use."
+      },
+      "after": "e374896cffbe1482",
+      "date": 1444609895055
+    },
+    {
+      "type": "add",
+      "id": "22bb234b3eb3c801",
+      "item": {
+        "type": "paragraph",
+        "id": "22bb234b3eb3c801",
+        "text": "The following plugin is marked up to import images. Try dragging an image from some other website and dropping it here. Expect a new page added to the lineup."
+      },
+      "after": "29477024b817698b",
+      "date": 1444610347093
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "e0e43c67bd13522f"
+      },
+      "id": "e0e43c67bd13522f",
+      "type": "add",
+      "after": "41539361b8005c94",
+      "date": 1444610370307
+    },
+    {
+      "type": "edit",
+      "id": "e0e43c67bd13522f",
+      "item": {
+        "type": "paragraph",
+        "id": "e0e43c67bd13522f",
+        "text": "The plugin collects various pieces of information from the drop. This varies with what you drag, from where you drag, and what browser and os host the plugin's drop zone."
+      },
+      "date": 1444610564415
+    },
+    {
+      "type": "edit",
+      "id": "e0e43c67bd13522f",
+      "item": {
+        "type": "paragraph",
+        "id": "e0e43c67bd13522f",
+        "text": "The plugin collects various pieces of information from the drop. This varies with what you drag, from where you drag, and what browser and os host the plugin."
+      },
+      "date": 1444610574282
+    },
+    {
+      "type": "add",
+      "id": "b4e64ccaff2dcc52",
+      "item": {
+        "type": "paragraph",
+        "id": "b4e64ccaff2dcc52",
+        "text": "# Markup"
+      },
+      "after": "e0e43c67bd13522f",
+      "date": 1444610592760
+    },
+    {
+      "type": "add",
+      "id": "23871369649ceb3d",
+      "item": {
+        "type": "paragraph",
+        "id": "23871369649ceb3d",
+        "text": "Say POST with a service endpoint to send drop information to that service."
+      },
+      "after": "b4e64ccaff2dcc52",
+      "date": 1444610679272
+    },
+    {
+      "type": "edit",
+      "id": "e374896cffbe1482",
+      "item": {
+        "type": "paragraph",
+        "id": "e374896cffbe1482",
+        "text": "This plugin provides interactive access to remote services that can read content you drop and create from it useful pages that appear ready to be saved or used at one's discretion."
+      },
+      "date": 1444611595299
+    },
+    {
+      "type": "edit",
+      "id": "29477024b817698b",
+      "item": {
+        "type": "paragraph",
+        "id": "29477024b817698b",
+        "text": "Markup in a Transport item tell the plugin what should be done with drops. Transporter services are expected to publish properly marked up plugins for your use."
+      },
+      "date": 1444611624168
+    },
+    {
+      "type": "add",
+      "id": "90b8218c3c075df8",
+      "item": {
+        "type": "paragraph",
+        "id": "90b8218c3c075df8",
+        "text": "# Catalog"
+      },
+      "after": "23871369649ceb3d",
+      "date": 1444611665248
+    },
+    {
+      "type": "add",
+      "id": "9a80a5731c546d24",
+      "item": {
+        "type": "paragraph",
+        "id": "9a80a5731c546d24",
+        "text": "Look here for information about available Transporters and the people who support them."
+      },
+      "after": "90b8218c3c075df8",
+      "date": 1444611744190
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "7256f8cf33cc16a7"
+      },
+      "id": "7256f8cf33cc16a7",
+      "type": "add",
+      "after": "9a80a5731c546d24",
+      "date": 1444611747508
+    },
+    {
+      "type": "edit",
+      "id": "7256f8cf33cc16a7",
+      "item": {
+        "type": "reference",
+        "id": "7256f8cf33cc16a7",
+        "site": "port.fed.wiki.org",
+        "slug": "finding-and-writing-transporters",
+        "title": "Finding and Writing Transporters",
+        "text": "Here we will point to information about available transporters as well as tips for writing them yourself."
+      },
+      "date": 1444611770915
+    },
+    {
+      "type": "edit",
+      "id": "b4e64ccaff2dcc52",
+      "item": {
+        "type": "markdown",
+        "id": "b4e64ccaff2dcc52",
+        "text": "# Markup"
+      },
+      "date": 1444611798941
+    },
+    {
+      "type": "edit",
+      "id": "90b8218c3c075df8",
+      "item": {
+        "type": "markdown",
+        "id": "90b8218c3c075df8",
+        "text": "# Catalog"
+      },
+      "date": 1444611802887
+    }
+  ]
 }
