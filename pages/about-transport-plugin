@@ -4,7 +4,7 @@
     {
       "type": "paragraph",
       "id": "e374896cffbe1482",
-      "text": "This plugin provides interactive access to remote services that can read content you drop and create from it useful pages that appear ready to be saved or used at one's discretion."
+      "text": "This plugin provides interactive access to remote services that can read content you drop and create from it useful pages that appear ready to be saved or used at one's discretion. [https://github.com/WardCunningham/wiki-plugin-transport github]"
     },
     {
       "type": "paragraph",
@@ -244,6 +244,16 @@
         "text": "# Catalog"
       },
       "date": 1444611802887
+    },
+    {
+      "type": "edit",
+      "id": "e374896cffbe1482",
+      "item": {
+        "type": "paragraph",
+        "id": "e374896cffbe1482",
+        "text": "This plugin provides interactive access to remote services that can read content you drop and create from it useful pages that appear ready to be saved or used at one's discretion. [https://github.com/WardCunningham/wiki-plugin-transport github]"
+      },
+      "date": 1444612390922
     }
   ]
 }
