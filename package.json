@@ -38,6 +38,6 @@
     "url": "https://github.com/wardcunningham/wiki-plugin-transport/issues"
   },
   "engines": {
-    "node": "0.10"
+    "node": ">=0.10"
   }
 }
