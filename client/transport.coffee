@@ -15,7 +15,7 @@ emit = ($item, item) ->
   $item.append """
     <div style="background-color:#eee;padding:15px;text-align:center;">
       <p>
-        transporting throuh<br>
+        transporting through<br>
         #{expand item.text}
       </p>
       <p class=caption>
