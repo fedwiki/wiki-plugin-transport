@@ -35,6 +35,7 @@ bind = ($item, item) ->
   $item.on 'drop', (e) ->
     e.preventDefault()
     e.stopPropagation()
+    $page = $(e.target).parents('.page') unless e.shiftKey
     params =
       text: e.originalEvent.dataTransfer.getData("text")
       html: e.originalEvent.dataTransfer.getData("text/html")
@@ -54,7 +55,7 @@ bind = ($item, item) ->
       $item.find('.caption').text 'ready'
       console.log 'page', page
       resultPage = wiki.newPage(page)
-      wiki.showResult resultPage
+      wiki.showResult resultPage, {$page}
 
 
 window.plugins.transport = {emit, bind} if window?
