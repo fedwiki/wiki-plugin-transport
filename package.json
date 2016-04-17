@@ -1,6 +1,6 @@
 {
   "name": "wiki-plugin-transport",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Federated Wiki - Transport Plugin",
   "keywords": [
     "transport",
@@ -32,10 +32,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wardcunningham/wiki-plugin-transport.git"
+    "url": "https://github.com/fedwiki/wiki-plugin-transport.git"
   },
   "bugs": {
-    "url": "https://github.com/wardcunningham/wiki-plugin-transport/issues"
+    "url": "https://github.com/fedwiki/wiki-plugin-transport/issues"
   },
   "engines": {
     "node": ">=0.10"
