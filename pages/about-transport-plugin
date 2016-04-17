@@ -19,7 +19,7 @@
     {
       "type": "transport",
       "id": "41539361b8005c94",
-      "text": "POST http://port.fed.wiki.org:4010/image."
+      "text": "POST http://fed.wiki.org:4010/image."
     },
     {
       "type": "paragraph",
@@ -254,6 +254,16 @@
         "text": "This plugin provides interactive access to remote services that can read content you drop and create from it useful pages that appear ready to be saved or used at one's discretion. [https://github.com/WardCunningham/wiki-plugin-transport github]"
       },
       "date": 1444612390922
+    },
+    {
+      "type": "edit",
+      "id": "41539361b8005c94",
+      "item": {
+        "type": "transport",
+        "id": "41539361b8005c94",
+        "text": "POST http://fed.wiki.org:4010/image."
+      },
+      "date": 1460865236380
     }
   ]
 }
