@@ -38,6 +38,8 @@ bind = ($item, item) ->
     params =
       text: e.originalEvent.dataTransfer.getData("text")
       html: e.originalEvent.dataTransfer.getData("text/html")
+      url:  e.originalEvent.dataTransfer.getData("URL")
+
     console.log 'params',params
     $item.find('.caption').text 'waiting'
 
