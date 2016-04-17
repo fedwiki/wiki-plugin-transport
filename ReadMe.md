@@ -11,7 +11,8 @@ event's dataTransfer object.
 ```
 {
 	"text": getData("text"),
-	"html": getData("text/html")
+	"html": getData("text/html"),
+	"url":  getData("URL")
 }
 ```
 
