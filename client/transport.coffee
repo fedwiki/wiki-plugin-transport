@@ -14,37 +14,44 @@ beam = (url) ->
 graphData = ($item) ->
   graphs = []
   candidates = $(".item:lt(#{$('.item').index($item)})")
-  for $each in candidates
-    $each = $($each)
-    if $each.hasClass 'graph-source'
-       graphs.push $each.get(0).graphData()
+  for each in candidates
+    if $(each).hasClass 'graph-source'
+      graphs.push each.graphData()
   graphs
 
 report = (object) ->
   """<pre style="text-align: left; background-color:#fff; padding:8px;"">#{JSON.stringify object, null, '  '}</pre>"""
 
+options = (text) ->
+  domain = m[1] if m = text.match /(https?:\/\/.*?\/)/
+  post = m[1] if m = text.match /\bPOST\b\s*(.*)/
+  graph = !!text.match /\bGRAPH\b/
+  {domain, post, graph}
 
 emit = ($item, item) ->
+  opt = options item.text
   $item.append """
     <div style="background-color:#eee;padding:15px;text-align:center;">
       <div class=preview>
-        #{report graphData($item)}
       </div>
-      <p>
+      <p class=transport-action>
         transporting through<br>
-        #{expand item.text}<br>
-        <button>Beam Up</button>
+        #{expand item.text}
       </p>
       <p class=caption>
         unavailable
       </b>
     </div>
   """
-  if match = item.text.match /(https?:\/\/.*?\/)/
-    $.get match[1], ->
+  if opt.domain
+    $.get opt.domain, ->
       $item.find('.caption').text 'ready'
+  if opt.graph
+    $item.find('.preview').html report graphData($item)
+    $item.find('.transport-action').append "<p><button>Beam Up</button></p>"
 
 bind = ($item, item) ->
+  opt = options item.text
   $item.dblclick -> wiki.textEditor $item, item
 
   $item.find('button').click ->
@@ -65,7 +72,7 @@ bind = ($item, item) ->
 
     req =
       type: "POST",
-      url: item.text.replace(/^POST\s*/,'')
+      url: opt.post
       dataType: 'json',
       contentType: "application/json",
       data: JSON.stringify(params)
