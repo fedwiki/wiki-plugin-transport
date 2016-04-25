@@ -11,12 +11,29 @@ beam = (url) ->
     resultPage = wiki.newPage(page)
     wiki.showResult resultPage
 
+graphData = ($item) ->
+  graphs = []
+  candidates = $(".item:lt(#{$('.item').index($item)})")
+  for $each in candidates
+    $each = $($each)
+    if $each.hasClass 'graph-source'
+       graphs.push $each.get(0).graphData()
+  graphs
+
+report = (object) ->
+  """<pre style="text-align: left; background-color:#fff; padding:8px;"">#{JSON.stringify object, null, '  '}</pre>"""
+
+
 emit = ($item, item) ->
   $item.append """
     <div style="background-color:#eee;padding:15px;text-align:center;">
+      <div class=preview>
+        #{report graphData($item)}
+      </div>
       <p>
         transporting through<br>
-        #{expand item.text}
+        #{expand item.text}<br>
+        <button>Beam Up</button>
       </p>
       <p class=caption>
         unavailable
@@ -29,20 +46,22 @@ emit = ($item, item) ->
 
 bind = ($item, item) ->
   $item.dblclick -> wiki.textEditor $item, item
+
   $item.find('button').click ->
-    beam item.text
+    post graphData($item)
 
   $item.on 'drop', (e) ->
     e.preventDefault()
     e.stopPropagation()
-    $page = $(e.target).parents('.page') unless e.shiftKey
-    params =
+    post
       text: e.originalEvent.dataTransfer.getData("text")
       html: e.originalEvent.dataTransfer.getData("text/html")
       url:  e.originalEvent.dataTransfer.getData("URL")
 
+  post = (params) ->
     console.log 'params',params
     $item.find('.caption').text 'waiting'
+    $page = $item.parents('.page')
 
     req =
       type: "POST",
