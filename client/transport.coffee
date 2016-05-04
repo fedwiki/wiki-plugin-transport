@@ -19,8 +19,19 @@ graphData = ($item) ->
       graphs.push each.graphData()
   graphs
 
+graphStats = ($item) ->
+  graphs = nodes = arcs = 0
+  candidates = $(".item:lt(#{$('.item').index($item)})")
+  for each in candidates
+    if $(each).hasClass 'graph-source'
+      graphs += 1
+      for node, arc of each.graphData()
+        nodes += 1
+        arcs += arc.length
+  {graphs, nodes, arcs}
+
 report = (object) ->
-  """<pre style="text-align: left; background-color:#fff; padding:8px;"">#{JSON.stringify object, null, '  '}</pre>"""
+  """<pre style="text-align: left; background-color:#ddd; padding:8px;"">#{JSON.stringify object, null, '  '}</pre>"""
 
 options = (text) ->
   domain = m[1] if m = text.match /(https?:\/\/.*?\/)/
@@ -47,7 +58,7 @@ emit = ($item, item) ->
     $.get opt.domain, ->
       $item.find('.caption').text 'ready'
   if opt.graph
-    $item.find('.preview').html report graphData($item)
+    $item.find('.preview').html report graphStats($item)
     $item.find('.transport-action').append "<p><button>Beam Up</button></p>"
 
 bind = ($item, item) ->
