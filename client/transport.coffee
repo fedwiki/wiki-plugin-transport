@@ -11,10 +11,41 @@ beam = (url) ->
     resultPage = wiki.newPage(page)
     wiki.showResult resultPage
 
+graphData = ($item) ->
+  graphs = []
+  candidates = $(".item:lt(#{$('.item').index($item)})")
+  for each in candidates
+    if $(each).hasClass 'graph-source'
+      graphs.push each.graphData()
+  graphs
+
+graphStats = ($item) ->
+  graphs = nodes = arcs = 0
+  candidates = $(".item:lt(#{$('.item').index($item)})")
+  for each in candidates
+    if $(each).hasClass 'graph-source'
+      graphs += 1
+      for node, arc of each.graphData()
+        nodes += 1
+        arcs += arc.length
+  {graphs, nodes, arcs}
+
+report = (object) ->
+  """<pre style="text-align: left; background-color:#ddd; padding:8px;"">#{JSON.stringify object, null, '  '}</pre>"""
+
+options = (text) ->
+  domain = m[1] if m = text.match /(https?:\/\/.*?\/)/
+  post = m[1] if m = text.match /\bPOST\b\s*(.*)/
+  graph = !!text.match /\bGRAPH\b/
+  {domain, post, graph}
+
 emit = ($item, item) ->
+  opt = options item.text
   $item.append """
     <div style="background-color:#eee;padding:15px;text-align:center;">
-      <p>
+      <div class=preview>
+      </div>
+      <p class=transport-action>
         transporting through<br>
         #{expand item.text}
       </p>
@@ -23,30 +54,36 @@ emit = ($item, item) ->
       </b>
     </div>
   """
-  if match = item.text.match /(https?:\/\/.*?\/)/
-    $.get match[1], ->
+  if opt.domain
+    $.get opt.domain, ->
       $item.find('.caption').text 'ready'
+  if opt.graph
+    $item.find('.preview').html report graphStats($item)
+    $item.find('.transport-action').append "<p><button>Beam Up</button></p>"
 
 bind = ($item, item) ->
+  opt = options item.text
   $item.dblclick -> wiki.textEditor $item, item
+
   $item.find('button').click ->
-    beam item.text
+    post graphData($item)
 
   $item.on 'drop', (e) ->
     e.preventDefault()
     e.stopPropagation()
-    $page = $(e.target).parents('.page') unless e.shiftKey
-    params =
+    post
       text: e.originalEvent.dataTransfer.getData("text")
       html: e.originalEvent.dataTransfer.getData("text/html")
       url:  e.originalEvent.dataTransfer.getData("URL")
 
+  post = (params) ->
     console.log 'params',params
     $item.find('.caption').text 'waiting'
+    $page = $item.parents('.page')
 
     req =
       type: "POST",
-      url: item.text.replace(/^POST\s*/,'')
+      url: opt.post
       dataType: 'json',
       contentType: "application/json",
       data: JSON.stringify(params)
