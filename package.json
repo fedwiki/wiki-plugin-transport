@@ -1,6 +1,6 @@
 {
   "name": "wiki-plugin-transport",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "description": "Federated Wiki - Transport Plugin",
   "keywords": [
     "transport",
