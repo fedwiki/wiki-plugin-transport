@@ -14,20 +14,26 @@
     "url": "http://ward.asia.wiki.org/transport-plugin.html"
   },
   "contributors": [
-    {"name": "Paul Rodwell"},
-    {"name": "David Bovill"},
-    {"name": "Francesco Canessa"}
+    {
+      "name": "Paul Rodwell"
+    },
+    {
+      "name": "David Bovill"
+    },
+    {
+      "name": "Francesco Canessa"
+    }
   ],
   "scripts": {
     "test": "mocha"
   },
   "devDependencies": {
-    "grunt": "~0.4",
-    "grunt-contrib-coffee": "~0.12",
-    "grunt-contrib-watch": "~0.6",
-    "mocha": "*",
     "expect.js": "*",
-    "grunt-mocha-test": "~0.12"
+    "grunt": "^1.0.1",
+    "grunt-contrib-coffee": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-mocha-test": "~0.12",
+    "mocha": "*"
   },
   "license": "MIT",
   "repository": {
