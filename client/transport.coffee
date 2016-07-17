@@ -65,21 +65,20 @@ bind = ($item, item) ->
   opt = options item.text
   $item.dblclick -> wiki.textEditor $item, item
 
-  $item.find('button').click ->
-    post graphData($item)
+  $item.find('button').click (e) ->
+     post e, graphData($item)
 
   $item.on 'drop', (e) ->
     e.preventDefault()
     e.stopPropagation()
-    post
+    post e,
       text: e.originalEvent.dataTransfer.getData("text")
       html: e.originalEvent.dataTransfer.getData("text/html")
       url:  e.originalEvent.dataTransfer.getData("URL")
 
-  post = (params) ->
-    console.log 'params',params
+  post = (e, params) ->
     $item.find('.caption').text 'waiting'
-    $page = $item.parents('.page')
+    $page = $item.parents('.page') unless e.shiftKey
 
     req =
       type: "POST",
@@ -90,7 +89,6 @@ bind = ($item, item) ->
 
     $.ajax(req).done (page) ->
       $item.find('.caption').text 'ready'
-      console.log 'page', page
       resultPage = wiki.newPage(page)
       wiki.showResult resultPage, {$page}
 
