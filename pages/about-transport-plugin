@@ -19,7 +19,7 @@
     {
       "type": "transport",
       "id": "41539361b8005c94",
-      "text": "POST http://fed.wiki.org:4010/image."
+      "text": "POST http://home.c2.com:4010/image"
     },
     {
       "type": "paragraph",
@@ -261,7 +261,7 @@
       "item": {
         "type": "transport",
         "id": "41539361b8005c94",
-        "text": "POST http://fed.wiki.org:4010/image."
+        "text": "POST http://home.c2.com:4010/image"
       },
       "date": 1460865236380
     }
