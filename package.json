@@ -28,15 +28,15 @@
     "test": "mocha"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
     "expect.js": "*",
     "grunt": "^1.0.1",
     "grunt-contrib-coffee": "^2.1.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-git-authors": "^3.2.0",
     "grunt-mocha-test": "^0.13.3",
-    "mocha": "*"
+    "mocha": "^8.1.1"
   },
   "license": "MIT",
   "repository": {
