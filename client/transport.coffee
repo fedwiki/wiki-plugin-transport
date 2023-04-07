@@ -63,9 +63,9 @@ emit = ($item, item) ->
 
 bind = ($item, item) ->
   opt = options item.text
-  $item.dblclick -> wiki.textEditor $item, item
+  $item.on 'dblclick', () -> wiki.textEditor $item, item
 
-  $item.find('button').click (e) ->
+  $item.find('button').on 'click', (e) ->
      post e, graphData($item)
 
   $item.on 'drop', (e) ->
