@@ -1,6 +1,6 @@
 {
   "name": "wiki-plugin-transport",
-  "version": "0.2.0",
+  "version": "0.3.0-rc.0",
   "description": "Federated Wiki - Transport Plugin",
   "keywords": [
     "transport",
@@ -14,29 +14,24 @@
     "url": "http://ward.asia.wiki.org/transport-plugin.html"
   },
   "contributors": [
-    {
-      "name": "Paul Rodwell"
-    },
-    {
-      "name": "David Bovill"
-    },
-    {
-      "name": "Francesco Canessa"
-    }
+    "Ward Cunningham <ward@c2.com>",
+    "Francesco Canessa <makevoid@gmail.com>",
+    "Paul Rodwell <paul.rodwell@btinternet.com>"
   ],
   "scripts": {
-    "test": "mocha"
+    "build": "npm run clean; npm run test; node scripts/build-client.js",
+    "clean": "rm client/transport.js client/transport.js.map",
+    "test": "node --test",
+    "update-authors": "node scripts/update-authors.cjs"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.2",
-    "@babel/preset-env": "^7.23.2",
+    "@eslint/js": "^9.19.0",
+    "esbuild": "^0.24.2",
+    "eslint": "^9.19.0",
     "expect.js": "*",
-    "grunt": "^1.0.1",
-    "grunt-contrib-coffee": "^2.1.0",
-    "grunt-contrib-watch": "^1.0.0",
+    "globals": "^15.14.0",
     "grunt-git-authors": "^3.2.0",
-    "grunt-mocha-test": "^0.13.3",
-    "mocha": "*"
+    "prettier": "^3.4.2"
   },
   "license": "MIT",
   "repository": {
@@ -46,7 +41,8 @@
   "bugs": {
     "url": "https://github.com/fedwiki/wiki-plugin-transport/issues"
   },
+  "type": "module",
   "engines": {
-    "node": ">=0.10"
+    "node": ">=20"
   }
 }
