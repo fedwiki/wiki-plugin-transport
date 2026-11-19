@@ -1,5 +1,6 @@
 client/transport.*
 coverage
+cve-report
 node_modules
 npm-debug.log
 meta-client.json

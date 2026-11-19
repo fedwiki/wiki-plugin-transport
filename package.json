@@ -27,11 +27,11 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "esbuild": "^0.28.0",
-    "eslint": "^10.3.0",
+    "eslint": "^10.15.0",
     "expect.js": "*",
-    "globals": "^17.6.0",
+    "globals": "^17.14.0",
     "grunt-git-authors": "^3.2.0",
-    "prettier": "^3.8.3"
+    "prettier": "^3.10.1"
   },
   "license": "MIT",
   "repository": {
